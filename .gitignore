@@ -41,3 +41,7 @@ ffmpeg.zip
 *.exe
 database.sqlite
 search_results/
+*.mp3
+*.pck
+*.exe
+spotifydownload-master/
