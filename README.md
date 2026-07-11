@@ -1,105 +1,108 @@
-# VulnusMapper — Ritmusjáték Map Automata Generátor
+# VulnusMapper — Rhythm Game Map Auto-Generator
 
-**Spotify/YouTube zene letöltő + librosa beat detektáló, amely automatikusan generál ritmusjáték pályákat (map-eket) a zenék ütemei alapján.**
+**A Spotify/YouTube music downloader + librosa beat detector that automatically generates rhythm game maps based on beat patterns.**
 
-## 🎵 Leírás
+## 🎵 Description
 
-A VulnusMapper egy teljes körű pipeline, amely:
+VulnusMapper is a complete pipeline that:
 
-1. **Zenék letöltése** — Spotify playlist vagy YouTube link alapján (yt-dlp)
-2. **Beat detektálás** — librosa-val BPM, ütemek, és hangkarakterisztika elemzés
-3. **Map generálás** — Ritmusjáték pálya automatikus előállítása az ütemekből
-4. **Motívum felismerés** — Ismétlődő zenei minták detektálása és változatos map elemek
+1. **Downloads music** — from Spotify playlists or YouTube links (yt-dlp)
+2. **Detects beats** — analyzes BPM, beats, and audio characteristics via librosa
+3. **Generates maps** — automatically produces rhythm game levels from detected beats
+4. **Recognizes motifs** — detects repeating musical patterns and creates varied map elements
 
-Támogatott formátumok: MP3, WAV, FLAC, OGG, M4A
+Supported formats: MP3, WAV, FLAC, OGG, M4A
 
 ### NeonWave V4
 
-A projekt része a **NeonWave V4** — egy PyInstaller-rel buildelt standalone exe változat, amely tartalmazza a YouTube letöltőt és a mapper funkciókat.
+The project includes **NeonWave V4** — a standalone EXE version built with PyInstaller that bundles the YouTube downloader and mapper functionality.
 
-## 📁 Fájlszerkezet
+## 📁 File Structure
 
 ```
 VulnusMapper/
-├── Vulnus_auto_mapper.py        # Fő mapper script (442 sor)
-├── process_all.py               # Batch feldolgozó — minden letöltött zenére
-├── youtube_downloader.py        # YouTube letöltő (Spotify/YT támogatás)
-├── youtube_downloader.exe       # Lefordított YouTube letöltő
-├── youtube_downloader.spec      # PyInstaller spec fájl
+├── Vulnus_auto_mapper.py        # Main mapper script (442 lines)
+├── process_all.py               # Batch processor — for all downloaded tracks
+├── youtube_downloader.py        # YouTube downloader (Spotify/YT support)
+├── youtube_downloader.exe       # Compiled YouTube downloader
+├── youtube_downloader.spec      # PyInstaller spec file
 ├── NeonWaveDownloader.spec      # NeonWave build spec
-├── YouTubeDownloader.spec       # YouTube letöltő spec
+├── YouTubeDownloader.spec       # YouTube downloader spec
 ├── NeonWave_V4.spec             # NeonWave V4 build spec
-├── profilkepyoutubenak.ico      # Alkalmazás ikon
-├── downloads/                   # Letöltött zenék
+├── profilkepyoutubenak.ico      # Application icon
+├── downloads/                   # Downloaded music
 │   ├── batch_0_*.mp3
 │   ├── batch_1_*.mp3
 │   ├── batch_2_*.mp3
 │   └── batch_3_*.mp3
 ├── build/
-│   └── NeonWave_V4/             # PyInstaller build fájlok
+│   └── NeonWave_V4/             # PyInstaller build files
 ├── dist/
 │   └── youtube_downloader.exe   # Distributable exe
-├── mapper_errors.log            # Mapper hiba log
-├── youtube_downloader.log       # Letöltő log
+├── mapper_errors.log            # Mapper error log
+├── youtube_downloader.log       # Downloader log
 └── README.md
 ```
 
-## 🚀 Használat
+## 🚀 Usage
 
-### Zenék letöltése
+### Downloading music
 
 ```bash
-# YouTube letöltő indítása
+# Launch YouTube downloader
 python youtube_downloader.py
 
-# Vagy a lefordított exe
+# Or use the compiled executable
 youtube_downloader.exe
 ```
 
-### Map generálás egy zenéhez
+### Generating a map for a track
 
 ```bash
 python Vulnus_auto_mapper.py
 ```
 
-A szkript:
-1. Bekéri a zene fájl elérési útját
-2. Elemzi a BPM-et és ütemeket
-3. Detektálja a zenei motívumokat
-4. Generálja a map fájlt
+The script:
+1. Prompts for the audio file path
+2. Analyzes BPM and beats
+3. Detects musical motifs
+4. Generates the map file
 
-### Batch feldolgozás
+### Batch processing
 
 ```bash
-# Az összes letöltött zenéhez map generálása
+# Generate maps for all downloaded tracks
 python process_all.py
 ```
 
-### Függőségek automatikus telepítése
+### Automatic dependency installation
 
-A `Vulnus_auto_mapper.py` induláskor automatikusan ellenőrzi és telepíti a hiányzó csomagokat.
+`Vulnus_auto_mapper.py` automatically checks for and installs missing packages on startup.
 
-## 📦 Függőségek
+## 📦 Dependencies
 
 ```bash
 pip install librosa numpy yt-dlp
 ```
 
 - **Python 3.8+**
-- **librosa** — zenei elemzés, beat detektálás
-- **numpy** — numerikus számítások
-- **yt-dlp** — YouTube/Spotify letöltés
-- **PyInstaller** (opcionális) — exe build-eléshez
+- **librosa** — music analysis, beat detection
+- **numpy** — numerical computations
+- **yt-dlp** — YouTube/Spotify downloading
+- **PyInstaller** (optional) — for building EXE
 
-## 🎮 Kimenet formátum
+## 🎮 Output Format
 
-A generált map fájl a következőket tartalmazza:
-- **BPM** — tempó információ
-- **Ütem pozíciók** — időbélyegek ezredmásodpercben
-- **Nehézségi szint** — automatikusan meghatározva
-- **Motívum váltások** — változatos map elemek a zenei ismétlődéseknél
-- **Hangeffekt jelek** — speciális elemek triggerelése
+Generated map files contain:
+- **BPM** — tempo information
+- **Beat positions** — timestamps in milliseconds
+- **Difficulty level** — automatically determined
+- **Motif variations** — diverse map elements at musical repetitions
+- **Sound effect markers** — triggers for special elements
 
-## ⚠️ Jogi megjegyzés
+## ⚠️ Legal Note
 
-Ez az eszköz kizárólag **személyes használatra** készült. A szerzői joggal védett zenék letöltése és felhasználása a helyi jogszabályok szerint szabályozott. Csak olyan tartalmat tölts le, amelyhez rendelkezel a megfelelő jogosultsággal.
+This tool is intended for **personal use only**. Downloading and using copyrighted music is governed by local laws. Only download content for which you have appropriate rights.
+
+## Author
+Zsombi & Hermes Agent (Nous Research)
