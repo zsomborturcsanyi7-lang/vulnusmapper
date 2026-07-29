@@ -1,4 +1,4 @@
-# VulnusMapper — Rhythm Game Map Auto-Generator from Spotify/YouTube Audio
+# vulnusmapper
 
 **Status:** ⚠️ Prototype — beat detection works, map generation tested
 
