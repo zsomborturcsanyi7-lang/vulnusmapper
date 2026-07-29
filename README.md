@@ -1,34 +1,34 @@
 # vulnusmapper
 
-Librosa alapú automatikus ritmusjáték térkép és ütemdetektáló script Vulnus map fájlokhoz.
+Librosa-based automatic rhythm game map and beat detection script for Vulnus map files.
 
-## 📌 A projekt célja
-Automatizált eszköz audiofájlok (pl. MP3, WAV) elemzésére és a detektált ütemekből a Vulnus ritmusjáték számára kompatibilis térképfájlok (map.json) előállítására.
+## 📌 Overview & Purpose
+An automated tool designed to analyze audio files (e.g., MP3, WAV) and generate compatible map files (`map.json`) based on detected beats for the Vulnus rhythm game.
 
-## ⚙️ Technológiai stakk & Működés
-- **Nyelv**: Python 3.10+
-- **Audio feldolgozás**: `librosa`, `numpy`
-- **Fájlformátum**: JSON kimenet Vulnus specifikáció szerint
+## ⚙️ Tech Stack & Architecture
+- **Language**: Python 3.10+
+- **Audio Processing**: `librosa`, `numpy`
+- **Output Format**: JSON formatted according to Vulnus map specifications
 
-## 🚀 Telepítés és Használat
+## 🚀 Installation & Quickstart
 
-### Előfeltételek
+### Prerequisites
 - Python 3.10+
-- FFmpeg (opcionális, de ajánlott audio konverzióhoz)
+- FFmpeg (recommended for audio decoding)
 
-### Lépések
+### Steps
 ```bash
 git clone https://github.com/zsomborturcsanyi7-lang/vulnusmapper.git
 cd vulnusmapper
 
-# Virtuális környezet létrehozása és függőségek
+# Set up virtual environment and dependencies
 python -m venv venv
 venv\Scripts\activate  # Windows
 pip install -r requirements.txt
 
-# Térkép generálása audio fájlból
-python mapper.py --input zene.mp3 --output map.json
+# Generate map from audio
+python mapper.py --input song.mp3 --output map.json
 ```
 
-## 📊 Status
-⚠️ **Működő kísérleti eszköz**.
+## 📊 Project Status
+⚠️ **Functional Experimental Tool**.
