@@ -1,28 +1,34 @@
 # vulnusmapper
 
-**Status:** ⚠️ Prototype — beat detection works, map generation tested
+Librosa alapú automatikus ritmusjáték térkép és ütemdetektáló script Vulnus map fájlokhoz.
 
-Spotify/YouTube music downloader + librosa beat detector that automatically generates rhythm game maps based on beat patterns.
+## 📌 A projekt célja
+Automatizált eszköz audiofájlok (pl. MP3, WAV) elemzésére és a detektált ütemekből a Vulnus ritmusjáték számára kompatibilis térképfájlok (map.json) előállítására.
 
-## ⚠️ THIS PROJECT IS UNFINISHED — FEEL FREE TO CONTINUE IT ⚠️
+## ⚙️ Technológiai stakk & Működés
+- **Nyelv**: Python 3.10+
+- **Audio feldolgozás**: `librosa`, `numpy`
+- **Fájlformátum**: JSON kimenet Vulnus specifikáció szerint
 
-This project was developed by Zsombi & Hermes Agent (Nous Research).
+## 🚀 Telepítés és Használat
 
----
+### Előfeltételek
+- Python 3.10+
+- FFmpeg (opcionális, de ajánlott audio konverzióhoz)
 
-## Pipeline
-1. **Music download** — from Spotify playlists or YouTube links (yt-dlp)
-2. **Beat detection** — BPM, beats, audio characteristics via librosa
-3. **Map generation** — Automatic rhythm game level generation from detected beats
-4. **Motif recognition** — Repeating musical pattern detection and varied map elements
+### Lépések
+```bash
+git clone https://github.com/zsomborturcsanyi7-lang/vulnusmapper.git
+cd vulnusmapper
 
-## Files
-| File | Description |
-|------|-------------|
-| `Vulnus_auto_mapper.py` | Main mapper script (442 lines) |
-| `process_all.py` | Batch processor |
-| `youtube_downloader.py` | YouTube downloader |
-| `vulnus_ai_bot.py` | AI bot |
+# Virtuális környezet létrehozása és függőségek
+python -m venv venv
+venv\Scripts\activate  # Windows
+pip install -r requirements.txt
 
-## Developer
-Zsombi & Hermes Agent (Nous Research)
+# Térkép generálása audio fájlból
+python mapper.py --input zene.mp3 --output map.json
+```
+
+## 📊 Status
+⚠️ **Működő kísérleti eszköz**.
