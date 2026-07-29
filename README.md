@@ -1,34 +1,55 @@
 # vulnusmapper
 
-Librosa-based automatic rhythm game map and beat detection script for Vulnus map files.
+Librosa-based automated rhythm map generator for Vulnus.
 
-## 📌 Overview & Purpose
-An automated tool designed to analyze audio files (e.g., MP3, WAV) and generate compatible map files (`map.json`) based on detected beats for the Vulnus rhythm game.
+## Overview & Purpose
+vulnusmapper is a Python automation utility that analyzes audio files to detect musical beats, onset envelopes, and tempo patterns. It converts extracted audio data into valid JSON map files compatible with the Vulnus rhythm game engine.
 
-## ⚙️ Tech Stack & Architecture
+## Key Features
+- Automated onset detection and tempo estimation using signal processing algorithms.
+- Configurable difficulty parameters and note spacing algorithms.
+- Direct export to Vulnus-compliant JSON format.
+- Batch processing support for multiple audio tracks.
+
+## Tech Stack & Dependencies
 - **Language**: Python 3.10+
-- **Audio Processing**: `librosa`, `numpy`
-- **Output Format**: JSON formatted according to Vulnus map specifications
+- **Audio Processing**: Librosa, NumPy, SciPy
+- **Data Export**: Standard Library JSON
 
-## 🚀 Installation & Quickstart
+## Project Structure
+```text
+vulnusmapper/
+├── mapper.py
+├── utils/
+├── requirements.txt
+└── README.md
+```
+
+## Installation & Setup
 
 ### Prerequisites
 - Python 3.10+
-- FFmpeg (recommended for audio decoding)
+- FFmpeg (required for audio decoding)
 
 ### Steps
 ```bash
+# Clone repository
 git clone https://github.com/zsomborturcsanyi7-lang/vulnusmapper.git
 cd vulnusmapper
 
-# Set up virtual environment and dependencies
+# Virtual environment setup
 python -m venv venv
-venv\Scripts\activate  # Windows
-pip install -r requirements.txt
+venv\Scripts\activate
 
-# Generate map from audio
-python mapper.py --input song.mp3 --output map.json
+# Install requirements
+pip install -r requirements.txt
 ```
 
-## 📊 Project Status
-⚠️ **Functional Experimental Tool**.
+## Usage Examples
+```bash
+python mapper.py --input path/to/song.mp3 --output path/to/map.json --sensitivity 0.8
+```
+
+## Status & License
+Status: Functional Utility / Experimental.
+License: MIT
